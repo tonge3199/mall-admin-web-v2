@@ -1,0 +1,51 @@
+@import 'antd/dist/reset.css';
+
+:root {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #1f2d3d;
+    background: #f5f7fa;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+.app-logo {
+    height: 48px;
+    margin: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.app-header {
+    background: #fff;
+    padding: 0 24px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+}
+
+.app-content {
+    padding: 24px;
+    background: #f5f7fa;
+    min-height: calc(100vh - 64px);
+}
+
+.full-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+}
