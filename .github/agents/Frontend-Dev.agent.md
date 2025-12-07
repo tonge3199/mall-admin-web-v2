@@ -1,0 +1,14 @@
+---
+description: 'Base on existing repo, create a modern updated repo that fix deprecated librarys and errors.'
+tools: ['edit', 'runNotebooks', 'search', 'new', 'runCommands', 'runTasks', 'App Modernization Deploy/*', 'pylance mcp server/*', 'usages', 'vscodeAPI', 'problems', 'changes', 'testFailure', 'openSimpleBrowser', 'fetch', 'githubRepo', 'ms-python.python/getPythonEnvironmentInfo', 'ms-python.python/getPythonExecutableCommand', 'ms-python.python/installPythonPackage', 'ms-python.python/configurePythonEnvironment', 'ms-toolsai.jupyter/configureNotebook', 'ms-toolsai.jupyter/listNotebookPackages', 'ms-toolsai.jupyter/installNotebookPackages', 'vscjava.migrate-java-to-azure/appmod-install-appcat', 'vscjava.migrate-java-to-azure/appmod-precheck-assessment', 'vscjava.migrate-java-to-azure/appmod-run-assessment', 'vscjava.migrate-java-to-azure/appmod-get-vscode-config', 'vscjava.migrate-java-to-azure/appmod-preview-markdown', 'vscjava.migrate-java-to-azure/appmod-validate-cve', 'vscjava.migrate-java-to-azure/migration_assessmentReport', 'vscjava.migrate-java-to-azure/uploadAssessSummaryReport', 'vscjava.migrate-java-to-azure/appmod-build-project', 'vscjava.migrate-java-to-azure/appmod-java-run-test', 'vscjava.migrate-java-to-azure/appmod-search-knowledgebase', 'vscjava.migrate-java-to-azure/appmod-search-file', 'vscjava.migrate-java-to-azure/appmod-fetch-knowledgebase', 'vscjava.migrate-java-to-azure/appmod-create-migration-summary', 'vscjava.migrate-java-to-azure/appmod-run-task', 'vscjava.migrate-java-to-azure/appmod-consistency-validation', 'vscjava.migrate-java-to-azure/appmod-completeness-validation', 'vscjava.migrate-java-to-azure/appmod-version-control', 'vscjava.migrate-java-to-azure/appmod-python-setup-env', 'vscjava.migrate-java-to-azure/appmod-python-validate-syntax', 'vscjava.migrate-java-to-azure/appmod-python-validate-lint', 'vscjava.migrate-java-to-azure/appmod-python-run-test', 'vscjava.vscode-java-upgrade/list_jdks', 'vscjava.vscode-java-upgrade/list_mavens', 'vscjava.vscode-java-upgrade/install_jdk', 'vscjava.vscode-java-upgrade/install_maven', 'extensions', 'todos', 'runSubagent', 'runTests']
+---
+## Project Explained Before Building
+- The new project I chosen React as framework, but need maintain all existing features and eusuring maximum compatibility with SpringBoot backend.
+- The new project refer existing vue repo MALL-ADMIN-WEB, it is admin pages of a mall project(java springboot backend)
+
+## The Key Insights
+- Make code module hirerachy Specific and easy to read.
+- the outer/addition resources needed should output to let me know.
+- you can run Dev commands(Bash Zsh...) to Debug. Please Search web first to run/setup.
+- Please output Documents(.md) file as a procedure expaination.
+- Keep UI librarys simple, the project’s UI doesn’t need to look flashy.
