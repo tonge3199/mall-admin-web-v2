@@ -1,24 +1,39 @@
-import { Button, Card, Form, Input, Typography } from 'antd'
+import { Button, Card, Form, Input, Typography, message } from 'antd'
 import { api } from '@/api/client'
 import { useAuthStore } from '@/auth/store'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
+interface LoginResult {
+    token: string
+    tokenHead: string
+}
+
 export function LoginPage() {
     const setToken = useAuthStore((state) => state.setToken)
+    const token = useAuthStore((state) => state.token)
     const navigate = useNavigate()
     const location = useLocation()
     const [loading, setLoading] = useState(false)
 
-    const handleFinish = async (values: { username: string; password: string; verifyCode?: string }) => {
+    // If already logged in, redirect to home
+    if (token) {
+        const redirectTo = (location.state as { from?: { pathname: string } })?.from?.pathname || '/home'
+        navigate(redirectTo, { replace: true })
+    }
+
+    const handleFinish = async (values: { username: string; password: string }) => {
         setLoading(true)
         try {
-            type LoginResponse = { tokenHead?: string; token?: string }
-            const res = (await api.post<LoginResponse>('/sso/login', values)) as LoginResponse
-            const token = `${res.tokenHead ?? ''}${res.token ?? ''}` || res.token || ''
-            setToken(token)
-            const redirectTo = (location.state as any)?.from?.pathname || '/home'
+            const res = await api.post<unknown, { data: LoginResult }>('/admin/login', values)
+            const fullToken = `${res.data.tokenHead}${res.data.token}`
+            setToken(fullToken)
+            message.success('登录成功')
+            const redirectTo = (location.state as { from?: { pathname: string } })?.from?.pathname || '/home'
             navigate(redirectTo, { replace: true })
+        } catch (error) {
+            // Error is handled by axios interceptor
+            console.error('Login failed:', error)
         } finally {
             setLoading(false)
         }
@@ -34,15 +49,12 @@ export function LoginPage() {
                     <Form.Item name="password" label="密码" rules={[{ required: true, message: '请输入密码' }]}>
                         <Input.Password placeholder="********" />
                     </Form.Item>
-                    <Form.Item name="verifyCode" label="验证码" rules={[{ required: false }]}>
-                        <Input placeholder="可选" />
-                    </Form.Item>
                     <Button type="primary" htmlType="submit" block loading={loading}>
                         登录
                     </Button>
                 </Form>
                 <Typography.Paragraph type="secondary" style={{ marginTop: 12 }}>
-                    登录成功后将携带 Authorization: Bearer &lt;token&gt; 调用后端。
+                    默认账号: admin / macro123
                 </Typography.Paragraph>
             </Card>
         </div>

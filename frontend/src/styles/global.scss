@@ -49,3 +49,84 @@ body {
     justify-content: center;
     background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
 }
+
+/* ============ Page Common Styles ============ */
+/* Migrated from OldRepo Element-UI style patterns */
+
+.page-container {
+    padding: 0;
+}
+
+.filter-card {
+    margin-bottom: 16px;
+
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .filter-form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
+.table-card {
+    .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+
+        span {
+            font-weight: 500;
+        }
+    }
+}
+
+.batch-operate {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.form-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Status badges */
+.status-tag {
+    &.success {
+        color: #52c41a;
+    }
+
+    &.warning {
+        color: #faad14;
+    }
+
+    &.error {
+        color: #ff4d4f;
+    }
+
+    &.info {
+        color: #1677ff;
+    }
+}
+
+/* Table action buttons */
+.table-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Form layouts */
+.inline-form-item {
+    display: inline-block;
+    margin-right: 16px;
+}

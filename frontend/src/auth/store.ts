@@ -1,9 +1,11 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 export type UserProfile = {
     id: number | null
     nickName?: string
     roles?: string[]
+    icon?: string
 }
 
 type AuthState = {
@@ -14,10 +16,17 @@ type AuthState = {
     logout: () => void
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-    token: null,
-    user: null,
-    setToken: (token) => set({ token }),
-    setUser: (user) => set({ user }),
-    logout: () => set({ token: null, user: null }),
-}))
+export const useAuthStore = create<AuthState>()(
+    persist(
+        (set) => ({
+            token: null,
+            user: null,
+            setToken: (token) => set({ token }),
+            setUser: (user) => set({ user }),
+            logout: () => set({ token: null, user: null }),
+        }),
+        {
+            name: 'mall-admin-auth', // localStorage key
+        }
+    )
+)
